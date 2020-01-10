@@ -1,4 +1,4 @@
-package top.jotyy.coroutines_retrofit_example.ui
+package top.jotyy.coroutines_retrofit_example
 
 import android.os.Bundle
 import android.os.PersistableBundle
