@@ -4,6 +4,7 @@
 	resources[<!ENTITY deeplinkNamespace "rocket-science://"><!ENTITY deeplinkDetailPath "&deeplinkNamespace;detail"><!ENTITY paramLaunchId "launch-id">]>
 
 <resources>
+	<string name="app_name">Coroutines Demo</string>
 	<string name="retry">Retry</string>
 
 	<string name="detail_param_launch_id">&paramLaunchId;</string>

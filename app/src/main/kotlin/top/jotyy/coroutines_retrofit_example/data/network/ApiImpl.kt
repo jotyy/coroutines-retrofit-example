@@ -7,7 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import top.jotyy.coroutines_retrofit_example.data.model.LoggedInUser
+import top.jotyy.coroutines_retrofit_example.data.model.User
 import java.util.concurrent.TimeUnit
 
 internal const val TIMEOUT_DURATION = 10L
@@ -36,10 +36,10 @@ internal class ApiImpl : Api {
             .create(Api::class.java)
     }
 
-    override suspend fun login(userName: String, password: String): Response<LoggedInUser> =
+    override suspend fun login(userName: String, password: String): Response<User> =
         service.login(userName, password)
 
-    override suspend fun register(userName: String, password: String, nickName: String): Response<LoggedInUser> =
+    override suspend fun register(userName: String, password: String, nickName: String): Response<User> =
         service.register(userName, password, nickName)
 
 }

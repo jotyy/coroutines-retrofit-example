@@ -41,6 +41,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         main.java.srcDirs += [file("$buildDir/generated/source/kapt/main")]
@@ -51,30 +55,26 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Compile time dependencies
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt annotationProcessors.roomCompiler
     kapt annotationProcessors.daggerCompiler
     kapt annotationProcessors.moshi
 
     implementation libraries.appCompat
-    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation libraries.core
+    implementation libraries.fragment
     implementation libraries.material
     implementation libraries.swipeRefreshLayout
-    implementation 'androidx.annotation:annotation:1.1.0'
     implementation libraries.constraintLayout
     implementation libraries.lifecycle
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61"
+    implementation libraries.kotlin
     implementation libraries.dagger
     implementation libraries.timber
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutinesVersion}"
+    implementation libraries.coroutines
     implementation libraries.liveDataKTX
     implementation libraries.retrofit
-    implementation libraries.room
     implementation libraries.moshiKotlin
     implementation libraries.okHttpLogger
 
