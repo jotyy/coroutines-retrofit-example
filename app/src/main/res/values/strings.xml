@@ -10,7 +10,7 @@
 	<string name="detail_param_launch_id">&paramLaunchId;</string>
 	<string name="detail_deeplink">&deeplinkDetailPath;/{&paramLaunchId;}</string>
 	<string name="detail_uri">&deeplinkDetailPath;/%1d</string>
-    <string name="prompt_email">Email</string>
+    <string name="prompt_username">Username</string>
 	<string name="prompt_password">Password</string>
 	<string name="action_sign_in_short">Password is atleast 6 chracters</string>
 	<string name="welcome">Welcome!</string>

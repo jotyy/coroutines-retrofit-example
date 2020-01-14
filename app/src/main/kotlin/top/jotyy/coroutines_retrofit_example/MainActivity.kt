@@ -10,7 +10,7 @@ import timber.log.Timber
 import top.jotyy.coroutines_retrofit_example.R
 import top.jotyy.coroutines_retrofit_example.ui.login.LoginFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

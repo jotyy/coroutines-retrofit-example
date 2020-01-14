@@ -1,20 +1,35 @@
 package top.jotyy.coroutines_retrofit_example.ui.login
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import dagger.android.support.DaggerFragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import top.jotyy.coroutines_retrofit_example.R
+import top.jotyy.coroutines_retrofit_example.base.BaseFragment
+import top.jotyy.coroutines_retrofit_example.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    private val viewModel by viewModels<LoginViewModel> { viewModelFactory }
+
+    override fun getLayoutId(): Int = R.layout.fragment_login
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.vm = viewModel
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity).supportActionBar?.show()
+    }
+
+    override fun observeData() {
+
     }
 }

@@ -45,6 +45,10 @@ android {
         jvmTarget = "1.8"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         main.java.srcDirs += [file("$buildDir/generated/source/kapt/main")]

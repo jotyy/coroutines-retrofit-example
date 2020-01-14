@@ -9,10 +9,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import top.jotyy.coroutines_retrofit_example.data.model.User
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 internal const val TIMEOUT_DURATION = 10L
 
-internal class ApiImpl : Api {
+class ApiImpl @Inject constructor(): Api {
     private val service by lazy {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
@@ -31,7 +32,7 @@ internal class ApiImpl : Api {
                     .build()
             )
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl("https://my-json-server.typicode.com/")
+            .baseUrl("https://jotyy.top/")
             .build()
             .create(Api::class.java)
     }

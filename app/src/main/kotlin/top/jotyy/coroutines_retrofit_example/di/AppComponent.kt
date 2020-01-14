@@ -1,5 +1,6 @@
 package top.jotyy.coroutines_retrofit_example.di
 
+import android.app.Application
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
@@ -13,8 +14,10 @@ import top.jotyy.coroutines_retrofit_example.App
 )
 interface AppComponent : AndroidInjector<App>{
 
+    fun getAppContext(): Context
+
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance applicationContext: Context): AppComponent
+        fun create(@BindsInstance app: Application): AppComponent
     }
 }
