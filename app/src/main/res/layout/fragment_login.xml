@@ -5,7 +5,7 @@
     <data>
         <variable
             name="vm"
-            type="top.jotyy.coroutines_retrofit_example.ui.login.LoginViewModel" />
+            type="top.jotyy.coroutinesretrofitexample.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

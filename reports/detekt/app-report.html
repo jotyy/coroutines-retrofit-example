@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>detekt report</title>
+    <style>
+h2 {
+  background-color: #666666;
+  padding: 0.2em;
+  color: #ffffff;
+}
+h3 {
+  background-color:#f8dfdf;
+  padding:0.5em;
+}
+.rule {
+  background-color: #dddddd;
+  padding: 0.3em;
+  font-weight: bold;
+}
+.description {
+  color:#000000;
+  padding:0.3em;
+}
+.location {
+  color: #690505;
+  font-family: monospace;
+}
+.message {
+  font-size: 0.8em;
+  color: #444444;
+}
+.rule-container {
+  border: 0.1em dashed #dddddd;
+  padding: 0.1em;
+  line-height: 1.5em;
+}
+</style>
+</head>
+<body>
+
+<h1>detekt report</h1>
+
+<h2>Metrics</h2>
+
+<ul>
+<li>
+number of kt files: 22
+</li>
+<li>
+number of packages: 12
+</li>
+<li>
+number of classes: 26
+</li>
+<li>
+number of functions: 34
+</li>
+<li>
+number of properties: 16
+</li>
+</ul>
+
+<h2>Findings</h2>
+<h3>empty-blocks</h3>
+<div class="rule-container">
+<span class="rule">
+EmptyFunctionBlock
+</span>
+<span class="description">
+Empty block of code detected. As they serve no purpose they should be removed.
+</span>
+</div>
+<ul>
+<li>
+<span class="location">
+D:\AndroidProjects\coroutines-retrofit-example\app\src\main\kotlin\top\jotyy\coroutinesretrofitexample\ui\login\LoginFragment.kt:32:32
+</span>
+<br />
+<span class="message">
+This empty block of code can be removed.
+</span>
+</li>
+</ul>
+<h3>naming</h3>
+<div class="rule-container">
+<span class="rule">
+MatchingDeclarationName
+</span>
+<span class="description">
+If a source file contains only a single non-private top-level class or object, the file name should reflect the case-sensitive name plus the .kt extension.
+</span>
+</div>
+<ul>
+<li>
+<span class="location">
+D:\AndroidProjects\coroutines-retrofit-example\app\src\main\kotlin\top\jotyy\coroutinesretrofitexample\data\error\Exceptions.kt:1:1
+</span>
+<br />
+<span class="message">
+The file name 'Exceptions.kt' does not match the name of the single top-level declaration 'ServerException'.
+</span>
+</li>
+</ul>
+<h3>style</h3>
+<div class="rule-container">
+<span class="rule">
+ThrowsCount
+</span>
+<span class="description">
+Restrict the number of throw statements in methods.
+</span>
+</div>
+<ul>
+<li>
+<span class="location">
+D:\AndroidProjects\coroutines-retrofit-example\app\src\main\kotlin\top\jotyy\coroutinesretrofitexample\data\source\UserRemoteDataSource.kt:22:5
+</span>
+<br />
+<span class="message">
+Too many throw statements in the function login. The maximum number of allowed throw statements is 2.
+</span>
+</li>
+<li>
+<span class="location">
+D:\AndroidProjects\coroutines-retrofit-example\app\src\main\kotlin\top\jotyy\coroutinesretrofitexample\data\source\UserRemoteDataSource.kt:35:5
+</span>
+<br />
+<span class="message">
+Too many throw statements in the function register. The maximum number of allowed throw statements is 2.
+</span>
+</li>
+</ul>
+
+</body>
+</html>
