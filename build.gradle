@@ -15,10 +15,10 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:3.6.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:1.5.1.0"
 
@@ -36,7 +36,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 }
 

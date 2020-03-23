@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import top.jotyy.coroutinesretrofitexample.data.model.MyResponse
 import top.jotyy.coroutinesretrofitexample.data.model.User
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -37,10 +38,10 @@ class ApiImpl @Inject constructor(): Api {
             .create(Api::class.java)
     }
 
-    override suspend fun login(userName: String, password: String): Response<User> =
+    override suspend fun login(userName: String, password: String): MyResponse<User> =
         service.login(userName, password)
 
-    override suspend fun register(userName: String, password: String, nickName: String): Response<User> =
+    override suspend fun register(userName: String, password: String, nickName: String): MyResponse<User> =
         service.register(userName, password, nickName)
 
 }

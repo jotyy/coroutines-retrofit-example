@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.DaggerFragment
+import top.jotyy.coroutinesretrofitexample.R
+import top.jotyy.coroutinesretrofitexample.data.error.Reason
 import top.jotyy.coroutinesretrofitexample.di.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
@@ -40,5 +43,15 @@ abstract class BaseFragment<T: ViewDataBinding> : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeData()
+    }
+
+    protected fun showSnackbarWithAction(reason: Reason, block: () -> Unit) {
+        Snackbar.make(
+            binding.root,
+            reason.message,
+            Snackbar.LENGTH_INDEFINITE
+        ).setAction(R.string.retry) {
+            block()
+        }.show()
     }
 }

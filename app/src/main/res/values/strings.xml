@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE
-	resources[<!ENTITY deeplinkNamespace "rocket-science://"><!ENTITY deeplinkDetailPath "&deeplinkNamespace;detail"><!ENTITY paramLaunchId "launch-id">]>
+    resources[<!ENTITY deeplinkNamespace "rocket-science://"><!ENTITY deeplinkDetailPath "&deeplinkNamespace;detail"><!ENTITY paramLaunchId "launch-id">]>
 
 <resources>
-	<string name="app_name">Coroutines Demo</string>
-	<string name="retry">Retry</string>
+    <string name="app_name">Coroutines Demo</string>
+    <string name="retry">Retry</string>
 
-	<string name="detail_param_launch_id">&paramLaunchId;</string>
-	<string name="detail_deeplink">&deeplinkDetailPath;/{&paramLaunchId;}</string>
-	<string name="detail_uri">&deeplinkDetailPath;/%1d</string>
+    <string name="detail_param_launch_id">&paramLaunchId;</string>
+    <string name="detail_deeplink">&deeplinkDetailPath;/{&paramLaunchId;}</string>
+    <string name="detail_uri">&deeplinkDetailPath;/%1d</string>
     <string name="prompt_username">Username</string>
-	<string name="prompt_password">Password</string>
-	<string name="action_sign_in_short">Password is atleast 6 chracters</string>
-	<string name="welcome">Welcome!</string>
-	<string name="invalid_username">Not a valid username</string>
-	<string name="invalid_password">Password must be >5 characters</string>
-	<string name="login_failed">"Login failed"</string>
-	<string name="sign_in">Sign in</string>
-	<string name="sign_up"><u>Sign up</u></string>
-	<string name="forgot_password"><u>Forgot password?</u></string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Password is atleast 6 chracters</string>
+    <string name="welcome">Welcome!</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up"><u>Sign up</u></string>
+    <string name="forgot_password"><u>Forgot password?</u></string>
+
+	<!--Error-->
+	<string name="reason_network">Network error</string>
+	<string name="reason_empty_body">Response is empty</string>
+	<string name="reason_generic">Something went wrong</string>
+	<string name="reason_response">Woops, seems we got a server error</string>
+	<string name="reason_timeout">Server timed out</string>
+	<string name="reason_persistance_empty">There are no saved launches</string>
+	<string name="reason_no_network_persistance_empty">Seems there are no data and network</string>
 </resources>
