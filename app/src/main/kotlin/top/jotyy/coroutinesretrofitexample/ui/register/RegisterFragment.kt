@@ -1,4 +1,4 @@
-package top.jotyy.coroutinesretrofitexample.ui.login
+package top.jotyy.coroutinesretrofitexample.ui.register
 
 import android.os.Bundle
 import android.view.View
@@ -6,24 +6,18 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import top.jotyy.coroutinesretrofitexample.R
 import top.jotyy.coroutinesretrofitexample.base.BaseFragment
-import top.jotyy.coroutinesretrofitexample.databinding.FragmentLoginBinding
-import top.jotyy.coroutinesretrofitexample.utils.openHome
-import top.jotyy.coroutinesretrofitexample.utils.openRegister
+import top.jotyy.coroutinesretrofitexample.databinding.FragmentRegisterBinding
 
-class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
-    private val viewModel by viewModels<LoginViewModel> { viewModelFactory }
-
-    override fun getLayoutId(): Int = R.layout.fragment_login
+    private val viewModel by viewModels<RegisterViewModel> { viewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-
-        binding.signUp.setOnClickListener {
-            openRegister()
-        }
     }
+
+    override fun getLayoutId(): Int = R.layout.fragment_register
 
     override fun observeData() {
         viewModel.errorData.observe(this, Observer {
@@ -31,8 +25,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         })
 
         viewModel.successData.observe(this, Observer {
-            viewModel.saveToken(it.token)
-            openHome()
+            showSnackbarWithoutAction("注册成功 ${it.nickName}")
         })
     }
+
 }

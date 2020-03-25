@@ -3,9 +3,11 @@ package top.jotyy.coroutinesretrofitexample.di
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
+import android.net.NetworkCapabilities
 import dagger.Module
 import dagger.Provides
+import top.jotyy.coroutinesretrofitexample.data.persistent.Preferences
+import top.jotyy.coroutinesretrofitexample.data.persistent.PreferencesImpl
 
 @Module
 class CoreModule {
@@ -14,9 +16,12 @@ class CoreModule {
     fun provideAppContext(app: Application): Context = app.applicationContext
 
     @Provides
-    fun provideNetworkInfo(app: Application): NetworkInfo? {
-        val connectivityManager =
-            app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return connectivityManager.activeNetworkInfo
-    }
+    fun providePreferences(app: Application): Preferences = PreferencesImpl(app.applicationContext)
+
+    @Provides
+    fun provideNetworkCapabilities(app: Application): NetworkCapabilities? =
+        (app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
+            this.getNetworkCapabilities(this.activeNetwork)
+        }
+
 }

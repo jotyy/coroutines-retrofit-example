@@ -85,6 +85,7 @@ dependencies {
     implementation libraries.swipeRefreshLayout
     implementation libraries.constraintLayout
     implementation libraries.lifecycle
+    implementation libraries.navigation
 
     implementation libraries.kotlin
     implementation libraries.dagger

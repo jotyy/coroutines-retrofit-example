@@ -54,4 +54,12 @@ abstract class BaseFragment<T: ViewDataBinding> : DaggerFragment() {
             block()
         }.show()
     }
+
+    protected fun showSnackbarWithoutAction(message: String) {
+        Snackbar.make(
+            binding.root,
+            message,
+            Snackbar.LENGTH_SHORT
+        ).show()
+    }
 }

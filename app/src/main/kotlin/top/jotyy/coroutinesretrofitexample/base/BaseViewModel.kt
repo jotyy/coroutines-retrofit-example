@@ -9,11 +9,7 @@ import top.jotyy.coroutinesretrofitexample.data.error.Reason
 
 abstract class BaseViewModel<T> : ViewModel() {
 
-    abstract suspend fun loadData()
-
-    init {
-        viewModelScope.launch { loadData() }
-    }
+    abstract fun loadData()
 
     private val _successData = MutableLiveData<T>()
     private val _errorData = MutableLiveData<Reason>()

@@ -1,4 +1,4 @@
-package top.jotyy.coroutinesretrofitexample.ui.login
+package top.jotyy.coroutinesretrofitexample.ui.register
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
@@ -9,24 +9,28 @@ import top.jotyy.coroutinesretrofitexample.base.BaseViewModel
 import top.jotyy.coroutinesretrofitexample.data.handle
 import top.jotyy.coroutinesretrofitexample.data.model.UserEntity
 import top.jotyy.coroutinesretrofitexample.repository.UserRepository
-import java.lang.Exception
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(
-    private val userRepository: UserRepository
-) : BaseViewModel<UserEntity>() {
+class RegisterViewModel @Inject constructor(private val userRepository: UserRepository) :
+    BaseViewModel<UserEntity>() {
 
     val username = MutableLiveData<String>()
+    val nickname = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
-    override  fun loadData() {
+    override fun loadData() {
+
     }
 
-    fun getLogin(view: View) {
-        Timber.i("Clicked Login Button： {${username.value}, ${password.value}}")
+    fun register(view: View) {
         viewModelScope.launch {
             try {
-                val result = userRepository.login(username.value!!, password.value!!)
+                val result = userRepository.register(
+                    username.value!!,
+                    password.value!!,
+                    nickname.value!!
+                )
+
                 result.handle(
                     ::handleFailure,
                     ::handleSuccess
@@ -35,9 +39,5 @@ class LoginViewModel @Inject constructor(
                 Timber.e(e)
             }
         }
-    }
-
-    fun saveToken(token: String) {
-        userRepository.setToken(token)
     }
 }

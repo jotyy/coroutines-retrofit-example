@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="top.jotyy.coroutinesretrofitexample.ui.login.LoginViewModel" />
+            type="top.jotyy.coroutinesretrofitexample.ui.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="96dp"
-            android:text="@string/welcome"
+            android:text="@string/join"
             android:textColor="@color/primaryLightColor"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -42,48 +42,67 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
                 android:text="@={vm.username}" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:hint="@string/prompt_nickname"
+            app:boxBackgroundColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/username"
+            app:layout_constraintTop_toBottomOf="@id/username">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@={vm.nickname}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:hint="@string/prompt_password"
             app:boxBackgroundColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username">
+            app:layout_constraintStart_toStartOf="@id/nickname"
+            app:layout_constraintTop_toBottomOf="@id/nickname">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:singleLine="true"
                 android:text="@={vm.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/sign_in"
+            android:id="@+id/sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="@string/sign_in"
+            android:text="@string/sign_up"
             android:textColor="@color/primaryLightColor"
-            android:textSize="@dimen/text_size_title"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/password"
             app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/login"
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:onClick="@{vm::getLogin}"
+            android:onClick="@{vm::register}"
             android:src="@drawable/ic_arrow_right"
             app:elevation="0dp"
             app:layout_constraintRight_toRightOf="@id/password"
@@ -91,14 +110,14 @@
             app:tint="@null" />
 
         <TextView
-            android:id="@+id/sign_up"
+            android:id="@+id/sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="48dp"
-            android:text="@string/sign_up_underline"
+            android:text="@string/sign_in_underline"
             android:textColor="@color/sel_primary_color"
-            android:textSize="@dimen/text_size_middle"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
@@ -111,7 +130,7 @@
             android:layout_marginBottom="48dp"
             android:text="@string/forgot_password_underline"
             android:textColor="@color/sel_primary_color"
-            android:textSize="@dimen/text_size_middle"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

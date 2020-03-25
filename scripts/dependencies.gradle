@@ -52,6 +52,14 @@ ext {
             fragment          : "androidx.fragment:fragment-ktx:${versions.fragmentVersion}",
             material          : "com.google.android.material:material:${versions.materialVersion}",
 
+            /**
+             * Jetpack
+             */
+            navigation      : [
+                    "androidx.navigation:navigation-fragment-ktx:$nav_version",
+                    "androidx.navigation:navigation-ui-ktx:$nav_version"
+            ],
+
             room              : [
                     "androidx.room:room-runtime:${versions.roomVersion}",
                     "androidx.room:room-ktx:${versions.roomVersion}"
