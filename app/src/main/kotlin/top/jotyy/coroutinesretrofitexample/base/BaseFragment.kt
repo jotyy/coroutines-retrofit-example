@@ -49,8 +49,8 @@ abstract class BaseFragment<T: ViewDataBinding> : DaggerFragment() {
         Snackbar.make(
             binding.root,
             reason.message,
-            Snackbar.LENGTH_INDEFINITE
-        ).setAction(R.string.retry) {
+            Snackbar.LENGTH_LONG
+        ).setAction(R.string.ok) {
             block()
         }.show()
     }

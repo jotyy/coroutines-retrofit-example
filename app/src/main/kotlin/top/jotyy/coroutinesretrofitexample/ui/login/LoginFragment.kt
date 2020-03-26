@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import top.jotyy.coroutinesretrofitexample.R
 import top.jotyy.coroutinesretrofitexample.base.BaseFragment
 import top.jotyy.coroutinesretrofitexample.databinding.FragmentLoginBinding
-import top.jotyy.coroutinesretrofitexample.utils.openHome
+import top.jotyy.coroutinesretrofitexample.utils.openArticle
 import top.jotyy.coroutinesretrofitexample.utils.openRegister
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
@@ -32,7 +33,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         viewModel.successData.observe(this, Observer {
             viewModel.saveToken(it.token)
-            openHome()
+            openArticle()
         })
     }
 }

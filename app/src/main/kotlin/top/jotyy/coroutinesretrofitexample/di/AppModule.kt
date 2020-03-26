@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import top.jotyy.coroutinesretrofitexample.MainActivity
 import top.jotyy.coroutinesretrofitexample.ui.article.di.ArticleModule
+import top.jotyy.coroutinesretrofitexample.ui.detail.di.ArticleDetailModule
 import top.jotyy.coroutinesretrofitexample.ui.login.di.LoginModule
 import top.jotyy.coroutinesretrofitexample.ui.register.di.RegisterModule
 
@@ -14,7 +15,8 @@ abstract class AppModule {
         modules = [
             LoginModule::class,
             RegisterModule::class,
-            ArticleModule::class
+            ArticleModule::class,
+            ArticleDetailModule::class
         ]
     )
     abstract fun mainActivity(): MainActivity

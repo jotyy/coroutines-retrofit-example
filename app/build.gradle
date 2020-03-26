@@ -95,6 +95,7 @@ dependencies {
     implementation libraries.retrofit
     implementation libraries.moshiKotlin
     implementation libraries.okHttpLogger
+    implementation libraries.markdown
 
     testImplementation testLibraries.jUnitApi
     testImplementation testLibraries.mockk

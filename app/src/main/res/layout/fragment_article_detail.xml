@@ -2,21 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="vm"
-            type="top.jotyy.coroutinesretrofitexample.ui.article.ArticleViewModel" />
+            type="top.jotyy.coroutinesretrofitexample.ui.detail.ArticleDetailViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <TextView
             android:padding="@dimen/padding_standard"
+            android:id="@+id/tv_article"
+            android:text="@{vm.article}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 </layout>

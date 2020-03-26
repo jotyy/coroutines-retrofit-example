@@ -1,6 +1,5 @@
 package top.jotyy.coroutinesretrofitexample.ui.register
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -22,7 +21,7 @@ class RegisterViewModel @Inject constructor(private val userRepository: UserRepo
 
     }
 
-    fun register(view: View) {
+    fun register() {
         viewModelScope.launch {
             try {
                 val result = userRepository.register(

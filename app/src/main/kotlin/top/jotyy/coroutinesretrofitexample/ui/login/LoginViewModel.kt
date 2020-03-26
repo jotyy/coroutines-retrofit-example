@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(
     override  fun loadData() {
     }
 
-    fun getLogin(view: View) {
+    fun getLogin() {
         Timber.i("Clicked Login Button： {${username.value}, ${password.value}}")
         viewModelScope.launch {
             try {

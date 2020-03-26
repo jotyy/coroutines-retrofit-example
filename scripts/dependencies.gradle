@@ -37,6 +37,7 @@ ext {
             espressoVersion          : "3.2.0",
             mockkVersion             : "1.9.3",
             kluentVersion            : "1.53",
+            markdownVersion          : "1.0.5"
     ]
 
     libraries = [
@@ -55,7 +56,7 @@ ext {
             /**
              * Jetpack
              */
-            navigation      : [
+            navigation        : [
                     "androidx.navigation:navigation-fragment-ktx:$nav_version",
                     "androidx.navigation:navigation-ui-ktx:$nav_version"
             ],
@@ -129,7 +130,12 @@ ext {
             /**
              * Timber
              */
-            timber            : "com.jakewharton.timber:timber:${versions.timberVersion}"
+            timber            : "com.jakewharton.timber:timber:${versions.timberVersion}",
+
+            /**
+             *  MarkDown
+             */
+            markdown          : "com.zzhoujay.markdown:markdown:${versions.markdownVersion}"
     ]
 
     annotationProcessors = [

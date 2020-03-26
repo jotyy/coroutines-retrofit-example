@@ -3,6 +3,7 @@ package top.jotyy.coroutinesretrofitexample.base
 import android.net.NetworkCapabilities
 import top.jotyy.coroutinesretrofitexample.data.Failure
 import top.jotyy.coroutinesretrofitexample.data.Success
+import top.jotyy.coroutinesretrofitexample.data.error.AuthenticationError
 import top.jotyy.coroutinesretrofitexample.data.error.EmptyResultError
 import top.jotyy.coroutinesretrofitexample.data.error.NetworkError
 import top.jotyy.coroutinesretrofitexample.data.error.TimeoutError
@@ -33,14 +34,16 @@ abstract class BaseRemoteDataSource(
         }
 
     private inline fun <T, R> MyResponse<T>.extractResponseBody(transform: (T) -> R) =
-        if (code == 0) {
-            if (data != null) {
-                Success(transform(data))
-            } else {
-                Failure(EmptyResultError())
+        when (code) {
+            0 -> {
+                if (data != null) {
+                    Success(transform(data))
+                } else {
+                    Failure(EmptyResultError())
+                }
             }
-        } else {
-            Failure(NetworkError(msg))
+            40004 -> Failure(AuthenticationError())
+            else -> Failure(NetworkError(msg))
         }
 }
 
