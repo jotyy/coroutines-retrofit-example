@@ -1,5 +1,6 @@
 package top.jotyy.coroutinesretrofitexample.ui.register
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -10,8 +11,9 @@ import top.jotyy.coroutinesretrofitexample.data.model.UserEntity
 import top.jotyy.coroutinesretrofitexample.repository.UserRepository
 import javax.inject.Inject
 
-class RegisterViewModel @Inject constructor(private val userRepository: UserRepository) :
-    BaseViewModel<UserEntity>() {
+class RegisterViewModel @ViewModelInject constructor(
+    private val userRepository: UserRepository
+) : BaseViewModel<UserEntity>() {
 
     val username = MutableLiveData<String>()
     val nickname = MutableLiveData<String>()

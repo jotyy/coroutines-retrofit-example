@@ -5,15 +5,17 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import top.jotyy.coroutinesretrofitexample.R
 import top.jotyy.coroutinesretrofitexample.base.BaseFragment
 import top.jotyy.coroutinesretrofitexample.databinding.FragmentLoginBinding
 import top.jotyy.coroutinesretrofitexample.utils.openArticle
 import top.jotyy.coroutinesretrofitexample.utils.openRegister
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
-    private val viewModel by viewModels<LoginViewModel> { viewModelFactory }
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun getLayoutId(): Int = R.layout.fragment_login
 

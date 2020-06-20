@@ -22,5 +22,4 @@ class UserRemoteDataSource @Inject constructor(
         safeExecute({
             apiImpl.register(username, nickname, password)
         }) { it }
-
 }

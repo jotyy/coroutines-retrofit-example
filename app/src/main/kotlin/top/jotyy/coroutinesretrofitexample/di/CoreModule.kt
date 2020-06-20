@@ -1,26 +1,27 @@
 package top.jotyy.coroutinesretrofitexample.di
 
-import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import top.jotyy.coroutinesretrofitexample.data.persistent.Preferences
 import top.jotyy.coroutinesretrofitexample.data.persistent.PreferencesImpl
 
+@InstallIn(ApplicationComponent::class)
 @Module
-class CoreModule {
+object CoreModule {
 
     @Provides
-    fun provideAppContext(app: Application): Context = app.applicationContext
+    fun providePreferences(@ApplicationContext appContext: Context): Preferences =
+        PreferencesImpl(appContext)
 
     @Provides
-    fun providePreferences(app: Application): Preferences = PreferencesImpl(app.applicationContext)
-
-    @Provides
-    fun provideNetworkCapabilities(app: Application): NetworkCapabilities? =
-        (app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
+    fun provideNetworkCapabilities(@ApplicationContext appContext: Context): NetworkCapabilities? =
+        (appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
             this.getNetworkCapabilities(this.activeNetwork)
         }
 

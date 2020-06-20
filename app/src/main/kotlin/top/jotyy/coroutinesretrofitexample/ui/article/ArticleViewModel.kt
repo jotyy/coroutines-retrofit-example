@@ -1,5 +1,6 @@
 package top.jotyy.coroutinesretrofitexample.ui.article
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -9,7 +10,7 @@ import top.jotyy.coroutinesretrofitexample.data.model.ArticleEntity
 import top.jotyy.coroutinesretrofitexample.repository.ArticleRepository
 import javax.inject.Inject
 
-class ArticleViewModel @Inject constructor(
+class ArticleViewModel @ViewModelInject constructor(
     private val articleRepository: ArticleRepository
 ) : BaseViewModel<List<ArticleEntity>>() {
 

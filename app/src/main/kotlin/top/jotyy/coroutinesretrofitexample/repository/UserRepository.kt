@@ -4,8 +4,8 @@ import top.jotyy.coroutinesretrofitexample.data.Result
 import top.jotyy.coroutinesretrofitexample.data.model.UserEntity
 import top.jotyy.coroutinesretrofitexample.data.source.UserLocalDataSource
 import top.jotyy.coroutinesretrofitexample.data.source.UserRemoteDataSource
-import top.jotyy.coroutinesretrofitexample.di.AppScope
 import javax.inject.Inject
+import javax.inject.Singleton
 
 
 abstract class UserRepository {
@@ -20,7 +20,7 @@ abstract class UserRepository {
     abstract fun getToken(): String
 }
 
-@AppScope
+@Singleton
 class UserRepositoryImpl @Inject constructor(
     private val userRemoteDataSource: UserRemoteDataSource,
     private val userLocalDataSource: UserLocalDataSource

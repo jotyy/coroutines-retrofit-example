@@ -7,21 +7,12 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.DaggerFragment
 import top.jotyy.coroutinesretrofitexample.R
 import top.jotyy.coroutinesretrofitexample.data.error.Reason
-import top.jotyy.coroutinesretrofitexample.di.viewmodel.ViewModelFactory
-import javax.inject.Inject
 
-abstract class BaseFragment<T: ViewDataBinding> : DaggerFragment() {
-
-    @get:Inject
-    internal var androidInjector: DispatchingAndroidInjector<Any>? = null
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+abstract class BaseFragment<T: ViewDataBinding> : Fragment() {
 
     protected lateinit var binding: T
 

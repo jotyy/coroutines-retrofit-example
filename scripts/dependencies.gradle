@@ -26,6 +26,7 @@ ext {
             collectionVersion        : "1.1.0",
             roomVersion              : '2.2.3',
             daggerVersion            : '2.25.4',
+            daggerHiltVersion        : '2.28-alpha',
             okHttpVersion            : '4.3.0',
             retrofitVersion          : '2.7.1',
             picassoVersion           : "2.71828",
@@ -90,6 +91,11 @@ ext {
             ],
 
             /**
+             * Dagger hilt
+             */
+            hilt              : "com.google.dagger:hilt-android:${versions.daggerHiltVersion}",
+
+            /**
              * OkHttp
              */
             okHttp            : [
@@ -144,6 +150,7 @@ ext {
                     "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
                     "com.google.dagger:dagger-android-processor:${versions.daggerVersion}"
             ],
+            hiltCompiler  : "com.google.dagger:hilt-android-compiler:${versions.daggerHiltVersion}",
             moshi         : "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshiVersion}"
     ]
 

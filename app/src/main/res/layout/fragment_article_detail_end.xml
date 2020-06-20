@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@id/guide_line2"
+            app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.29" />
+            app:layout_constraintGuide_percent="0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_line2"
@@ -47,8 +47,6 @@
             android:id="@+id/bgView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:background="#ffffff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,13 +84,13 @@
             android:layout_marginTop="10dp"
             android:fontFamily="serif-monospace"
             android:gravity="center"
-            tools:text="Written by Jotyy"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="@id/bgView"
             app:layout_constraintStart_toStartOf="@id/bgView"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Written by Jotyy" />
 
         <View
             android:id="@+id/divider2"
@@ -121,6 +119,7 @@
             app:layout_constraintStart_toStartOf="@id/bgView"
             app:layout_constraintTop_toBottomOf="@id/divider2" />
 
+
         <include
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +127,6 @@
             app:layout_constraintEnd_toEndOf="@id/bgView"
             app:layout_constraintStart_toStartOf="@id/bgView"
             app:layout_constraintTop_toBottomOf="@id/tv_date"/>
-
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

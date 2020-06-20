@@ -8,12 +8,10 @@ import top.jotyy.coroutinesretrofitexample.data.error.Reason
  */
 sealed class Result<out T>
 
-// region Subclasses
 
 class Success<out T>(val successData: T) : Result<T>()
 class Failure(val errorData: Reason) : Result<Nothing>()
 
-// region Extensions
 
 inline fun <T> Result<T>.handle(failureBlock: (Reason) -> Unit, successBlock: (T) -> Unit) {
     when (this) {

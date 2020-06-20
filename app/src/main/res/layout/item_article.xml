@@ -8,6 +8,8 @@
         <variable
             name="article"
             type="top.jotyy.coroutinesretrofitexample.data.model.ArticleEntity" />
+
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -55,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="@{article.createdBy}"
+                    app:writtenBy="@{article.createdBy}"
                     tools:text="Written by Jotyy" />
 
                 <TextView

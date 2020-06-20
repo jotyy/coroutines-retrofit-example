@@ -9,7 +9,6 @@ import top.jotyy.coroutinesretrofitexample.data.error.NetworkError
 import top.jotyy.coroutinesretrofitexample.data.error.TimeoutError
 import top.jotyy.coroutinesretrofitexample.data.model.MyResponse
 import java.io.IOException
-import javax.inject.Inject
 import javax.inject.Provider
 
 abstract class BaseRemoteDataSource(

@@ -1,6 +1,7 @@
 package top.jotyy.coroutinesretrofitexample.ui.login
 
 import android.view.View
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -12,7 +13,7 @@ import top.jotyy.coroutinesretrofitexample.repository.UserRepository
 import java.lang.Exception
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(
+class LoginViewModel @ViewModelInject constructor(
     private val userRepository: UserRepository
 ) : BaseViewModel<UserEntity>() {
 

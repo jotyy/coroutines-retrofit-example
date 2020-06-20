@@ -8,6 +8,7 @@ import java.io.Serializable
 data class ArticleEntity(
     val title: String,
     val content: String,
-    // @Json(name = "cover_url") val coverUrl: String,
-    @Json(name = "created_by") val createdBy: String
+    @Json(name = "cover_url") val coverUrl: String,
+    @Json(name = "created_by") val createdBy: String,
+    @Json(name = "CreatedAt") val createdAt: String
 ) : Serializable

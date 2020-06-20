@@ -1,15 +1,11 @@
 package top.jotyy.coroutinesretrofitexample
 
-import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
-import top.jotyy.coroutinesretrofitexample.di.DaggerAppComponent
 
-class App : DaggerApplication() {
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
-        DaggerAppComponent.factory()
-            .create(this)
-
+@HiltAndroidApp
+class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
