@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.drawerLayout.setStatusBarBackground(R.color.primaryColor)
+        //binding.drawerLayout.setStatusBarBackground(R.color.primaryColor)
         setSupportActionBar(binding.toolbar)
 
         navController = findNavController(R.id.nav_host_fragment)
@@ -33,6 +33,6 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
     }
 
-    override fun onSupportNavigateUp(): Boolean =
-        findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    //override fun onSupportNavigateUp(): Boolean =
+    //   findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 }

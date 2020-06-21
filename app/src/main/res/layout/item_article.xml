@@ -12,60 +12,71 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_margin="4dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardElevation="2dp"
         app:contentPadding="@dimen/padding_standard">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceCaption"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:createdAt="@{article.createdAt}"
+                tools:text="\@ June 7" />
+
+            <TextView
                 android:id="@+id/tv_title"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@{article.title}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintTop_toBottomOf="@id/tv_date"
                 tools:text="Android的未来是什么" />
 
             <TextView
                 android:id="@+id/tv_desc"
-                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="@{article.content}"
+                android:text="@{article.desc}"
+                android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="#555555"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title"
                 tools:text="Android已经进入了后发展时代，原生Android该何去何从？" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_desc"
+                app:writtenBy="@{article.createdBy}"
+                tools:text="Written by Jotyy" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    app:writtenBy="@{article.createdBy}"
-                    tools:text="Written by Jotyy" />
-
-                <TextView
-                    android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="\@ June 7" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                app:glideSrc="@{article.coverUrl}"
+                app:glideCircularCrop="@{true}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

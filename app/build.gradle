@@ -95,6 +95,7 @@ dependencies {
     implementation libraries.kotlin
     implementation libraries.hilt
     implementation libraries.timber
+    implementation libraries.glide
     implementation libraries.coroutines
     implementation libraries.liveDataKTX
     implementation libraries.retrofit
