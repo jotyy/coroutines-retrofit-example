@@ -2,6 +2,7 @@ package top.jotyy.coroutinesretrofitexample.ui.article
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import top.jotyy.coroutinesretrofitexample.base.BaseViewModel
@@ -22,12 +23,13 @@ class ArticleViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             try {
                 Timber.i(articleRepository.toString())
-                val result = articleRepository.fetchArticles()
-
-                result.handle(
-                    ::handleFailure,
-                    ::handleSuccess
-                )
+                articleRepository.fetchArticles().collect {
+                    it.handle(
+                        ::handleState,
+                        ::handleFailure,
+                        ::handleSuccess
+                    )
+                }
             } catch (e: Exception) {
                 Timber.e(e)
             }

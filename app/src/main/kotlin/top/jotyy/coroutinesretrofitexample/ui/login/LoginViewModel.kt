@@ -29,6 +29,7 @@ class LoginViewModel @ViewModelInject constructor(
             try {
                 val result = userRepository.login(username.value!!, password.value!!)
                 result.handle(
+                    ::handleState,
                     ::handleFailure,
                     ::handleSuccess
                 )

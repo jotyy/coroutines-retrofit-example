@@ -33,6 +33,7 @@ class RegisterViewModel @ViewModelInject constructor(
                 )
 
                 result.handle(
+                    ::handleState,
                     ::handleFailure,
                     ::handleSuccess
                 )

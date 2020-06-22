@@ -1,6 +1,7 @@
 package top.jotyy.coroutinesretrofitexample.base
 
 import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import top.jotyy.coroutinesretrofitexample.data.Failure
 import top.jotyy.coroutinesretrofitexample.data.Success
 import top.jotyy.coroutinesretrofitexample.data.error.AuthenticationError
@@ -15,8 +16,9 @@ abstract class BaseRemoteDataSource(
     private val networkCapabilities: Provider<NetworkCapabilities>
 ) {
     private val isNetworkConnected
-        get() = networkCapabilities.get()
-            .hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+        get() =
+            networkCapabilities.get().hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                    || networkCapabilities.get().hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
 
     protected suspend fun <T, R> safeExecute(
         block: suspend () -> MyResponse<T>,

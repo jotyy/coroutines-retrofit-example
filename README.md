@@ -15,6 +15,7 @@ Android协程网络请求示例。
 - Navigation
 - Moshi
 - Retrofit
+- Dagger Hilt
 
 TODO:
 - 添加Room保存用户数据

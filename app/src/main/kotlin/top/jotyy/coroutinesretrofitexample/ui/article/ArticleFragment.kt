@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import top.jotyy.coroutinesretrofitexample.R
 import top.jotyy.coroutinesretrofitexample.base.BaseFragment
+import top.jotyy.coroutinesretrofitexample.data.State
 import top.jotyy.coroutinesretrofitexample.data.error.AuthenticationError
 import top.jotyy.coroutinesretrofitexample.databinding.FragmentArticleBinding
 import top.jotyy.coroutinesretrofitexample.utils.openDetail
@@ -24,10 +24,10 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = adapter
+        binding.srlArticle.setOnRefreshListener { viewModel.refresh() }
+        binding.rvArticle.layoutManager = LinearLayoutManager(context)
+        binding.rvArticle.adapter = adapter
         adapter.setOnItemClickListener { item, _ ->
-            //findNavController().navigate(R.id.action_articleFragment_to_motionFragment)
             openDetail(item)
         }
     }
@@ -35,6 +35,10 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
     override fun getLayoutId(): Int = R.layout.fragment_article
 
     override fun observeData() {
+        viewModel.stateData.observe(this, Observer {
+            binding.srlArticle.isRefreshing = it is State.Loading
+        })
+
         viewModel.errorData.observe(this, Observer {
             if (it is AuthenticationError) {
                 openLogin()
