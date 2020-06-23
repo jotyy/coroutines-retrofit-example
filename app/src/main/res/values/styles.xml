@@ -1,3 +1,7 @@
 <resources>
 
+    <style name="Widget.App.Toolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorControlNormal">@color/white_50</item>
+        <item name="actionMenuTextColor">@color/white_50</item>
+    </style>
 </resources>

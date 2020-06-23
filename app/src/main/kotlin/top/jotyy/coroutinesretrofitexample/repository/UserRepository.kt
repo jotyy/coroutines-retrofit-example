@@ -1,5 +1,8 @@
 package top.jotyy.coroutinesretrofitexample.repository
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.FlowCollector
+import top.jotyy.coroutinesretrofitexample.base.BaseRepository
 import top.jotyy.coroutinesretrofitexample.data.Result
 import top.jotyy.coroutinesretrofitexample.data.model.UserEntity
 import top.jotyy.coroutinesretrofitexample.data.source.UserLocalDataSource
@@ -8,13 +11,17 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-abstract class UserRepository {
-    abstract suspend fun login(username: String, password: String): Result<UserEntity>
+abstract class UserRepository : BaseRepository() {
+    abstract suspend fun login(
+        username: String,
+        password: String
+    ): Flow<Result<UserEntity>>
+
     abstract suspend fun register(
         username: String,
         nickname: String,
         password: String
-    ): Result<UserEntity>
+    ): Flow<Result<UserEntity>>
 
     abstract fun setToken(token: String)
     abstract fun getToken(): String
@@ -26,15 +33,22 @@ class UserRepositoryImpl @Inject constructor(
     private val userLocalDataSource: UserLocalDataSource
 ) : UserRepository() {
 
-    override suspend fun login(username: String, password: String): Result<UserEntity> =
-        userRemoteDataSource.login(username, password)
+    override suspend fun login(
+        username: String,
+        password: String
+    ): Flow<Result<UserEntity>> =
+        execute {
+            userRemoteDataSource.login(username, password)
+        }
 
     override suspend fun register(
         username: String,
         nickname: String,
         password: String
-    ): Result<UserEntity> =
-        userRemoteDataSource.register(username, nickname, password)
+    ): Flow<Result<UserEntity>> =
+        execute {
+            userRemoteDataSource.register(username, nickname, password)
+        }
 
     override fun setToken(token: String) =
         userLocalDataSource.setToken(token)
@@ -42,3 +56,4 @@ class UserRepositoryImpl @Inject constructor(
     override fun getToken(): String =
         userLocalDataSource.getToken()
 }
+

@@ -76,7 +76,7 @@
                 android:layout_marginTop="48dp"
                 android:text="@string/sign_in"
                 android:textColor="@color/orange_400"
-                android:textSize="@dimen/text_size_title"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@+id/password"
                 app:layout_constraintTop_toBottomOf="@+id/password" />

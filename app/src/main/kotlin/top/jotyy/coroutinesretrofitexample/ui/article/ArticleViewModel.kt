@@ -9,7 +9,6 @@ import top.jotyy.coroutinesretrofitexample.base.BaseViewModel
 import top.jotyy.coroutinesretrofitexample.data.handle
 import top.jotyy.coroutinesretrofitexample.data.model.ArticleEntity
 import top.jotyy.coroutinesretrofitexample.repository.ArticleRepository
-import javax.inject.Inject
 
 class ArticleViewModel @ViewModelInject constructor(
     private val articleRepository: ArticleRepository
@@ -22,7 +21,6 @@ class ArticleViewModel @ViewModelInject constructor(
     override fun loadData() {
         viewModelScope.launch {
             try {
-                Timber.i(articleRepository.toString())
                 articleRepository.fetchArticles().collect {
                     it.handle(
                         ::handleState,

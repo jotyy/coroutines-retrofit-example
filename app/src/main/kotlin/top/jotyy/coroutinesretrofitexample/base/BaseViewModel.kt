@@ -10,7 +10,6 @@ import top.jotyy.coroutinesretrofitexample.data.error.Reason
 
 abstract class BaseViewModel<T> : ViewModel() {
 
-    abstract fun loadData()
 
     private val _stateData = MutableLiveData<State>()
     private val _successData = MutableLiveData<T>()
@@ -36,6 +35,8 @@ abstract class BaseViewModel<T> : ViewModel() {
     protected fun handleFailure(reason: Reason) {
         _errorData.value = reason
     }
+
+    open fun loadData(){}
 
     fun refresh() {
         viewModelScope.launch { loadData() }
